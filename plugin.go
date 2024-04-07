@@ -1,4 +1,4 @@
-package friendforgate
+package chatwatcher
 
 import (
 	"github.com/git-fal7/chatwatcher/internal/plugin"
