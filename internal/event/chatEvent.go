@@ -1,7 +1,7 @@
 package event
 
 import (
-	profanityfilter "github.com/git-fal7/chatwatcher/internal/profanityFilter"
+	"github.com/git-fal7/chatwatcher/internal/profanityfilter"
 	"go.minekube.com/gate/pkg/edition/java/proxy"
 )
 

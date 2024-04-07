@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/git-fal7/chatwatcher/internal/event"
-	profanityfilter "github.com/git-fal7/chatwatcher/internal/profanityfilter"
+	"github.com/git-fal7/chatwatcher/internal/profanityfilter"
 	"go.minekube.com/gate/pkg/edition/java/proxy"
 )
 
