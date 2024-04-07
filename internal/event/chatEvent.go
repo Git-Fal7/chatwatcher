@@ -1,7 +1,7 @@
 package event
 
 import (
-	goaway "github.com/TwiN/go-away"
+	profanityfilter "github.com/git-fal7/chatwatcher/internal/profanityFilter"
 	"go.minekube.com/gate/pkg/edition/java/proxy"
 )
 
@@ -9,6 +9,6 @@ func chatEvent() func(*proxy.PlayerChatEvent) {
 	return func(e *proxy.PlayerChatEvent) {
 		message := e.Message()
 
-		e.SetMessage(goaway.Censor(message))
+		e.SetMessage(profanityfilter.SanitizeMessage(message))
 	}
 }

@@ -3,7 +3,6 @@ module github.com/git-fal7/chatwatcher
 go 1.22.0
 
 require (
-	github.com/TwiN/go-away v1.6.13
 	github.com/robinbraemer/event v0.0.1
 	go.minekube.com/gate v0.36.7
 )
