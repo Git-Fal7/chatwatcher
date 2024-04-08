@@ -25,9 +25,8 @@ func chatEvent() func(*proxy.PlayerChatEvent) {
 			if !e.Player().HasPermission(config.ViperConfig.GetString("antispam.permission")) {
 				if time.Now().Before(cooldownMap[e.Player().ID()]) {
 					e.SetAllowed(false)
-					formattedTimeDuration := cooldownMap[e.Player().ID()].Format("0s")
 					e.Player().SendMessage(&component.Text{
-						Content: strings.ReplaceAll(config.ViperConfig.GetString("antispam.message"), "%duration%", formattedTimeDuration),
+						Content: strings.ReplaceAll(config.ViperConfig.GetString("antispam.message"), "%duration%", string(time.Until(cooldownMap[e.Player().ID()]))),
 					})
 				} else {
 					cooldownMap[e.Player().ID()] = time.Now().Add(time.Second * time.Duration(config.ViperConfig.GetFloat64("antispam.cooldown")))
