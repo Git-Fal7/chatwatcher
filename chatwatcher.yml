@@ -1,0 +1,10 @@
+profanityfilter:
+  enabled: true
+  permission: "git-fal7.chatwatcher.profanityfilter.bypass"
+
+antispam:
+  enabled: true
+  permission: "git-fal7.chatwatcher.antispam.bypass"
+  # in seconds
+  cooldown: 3
+  message: "Please wait %duration%"
