@@ -1,6 +1,7 @@
 package event
 
 import (
+	"fmt"
 	"strings"
 	"time"
 
@@ -26,7 +27,7 @@ func chatEvent() func(*proxy.PlayerChatEvent) {
 				if time.Now().Before(cooldownMap[e.Player().ID()]) {
 					e.SetAllowed(false)
 					e.Player().SendMessage(&component.Text{
-						Content: strings.ReplaceAll(config.ViperConfig.GetString("antispam.message"), "%duration%", string(time.Until(cooldownMap[e.Player().ID()]))),
+						Content: strings.ReplaceAll(config.ViperConfig.GetString("antispam.message"), "%duration%", fmt.Sprintf("%v", time.Until(cooldownMap[e.Player().ID()]))),
 					})
 				} else {
 					cooldownMap[e.Player().ID()] = time.Now().Add(time.Second * time.Duration(config.ViperConfig.GetFloat64("antispam.cooldown")))
